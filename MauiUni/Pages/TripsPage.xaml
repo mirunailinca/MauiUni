@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiUni.Pages.TripsPage"
+             Title="Dashboard Călătorii">
+
+    <!-- Am scos un rând (Auto) din definiție deoarece am șters imaginea -->
+    <Grid Padding="20" RowDefinitions="Auto, Auto, *, Auto" RowSpacing="15">
+
+        <!-- Rândul 0: Titlu (a urcat de pe rândul 1) -->
+        <Label Grid.Row="0" x:Name="TitluStatistici" 
+               Text="Salut! Ai 0 excursii salvate." 
+               FontSize="22" 
+               FontAttributes="Bold" 
+               TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
+
+        <!-- Rândul 1: Bara de căutare (a urcat de pe rândul 2) -->
+        <SearchBar Grid.Row="1" x:Name="BaraCautare" 
+                   Placeholder="Caută o destinație..." 
+                   TextChanged="OnCautareModificata" />
+
+        <!-- Rândul 2: Lista de carduri (a urcat de pe rândul 3) -->
+        <RefreshView Grid.Row="2">
+            <CollectionView x:Name="ListaExcursiiView" SelectionMode="Single" SelectionChanged="OnExcursieSelectata">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="0,8" Padding="15" CornerRadius="15" 
+                               BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}" 
+                               BorderColor="Transparent" HasShadow="True">
+                            <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15" VerticalOptions="Center">
+
+                                <Label Grid.Column="0" Text="✈️" FontSize="28" VerticalOptions="Center" />
+
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                                    <Label Text="{Binding NumeDestinatie}" FontSize="18" FontAttributes="Bold" />
+                                    <Label Text="{Binding DataPlecare, StringFormat='Plecare: {0:dd MMM yyyy}'}" 
+                                           FontSize="13" TextColor="Gray" />
+                                </VerticalStackLayout>
+
+                                <VerticalStackLayout Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End">
+                                    <Label Text="Buget" FontSize="11" TextColor="Gray" HorizontalOptions="End"/>
+                                    <HorizontalStackLayout Spacing="4">
+                                        <Label Text="{Binding Buget}" FontSize="16" FontAttributes="Bold" TextColor="#32D74B" />
+                                        <Label Text="{Binding Moneda}" FontSize="16" FontAttributes="Bold" TextColor="#32D74B" />
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Rândul 3: Butoanele (au urcat de pe rândul 4) -->
+        <Grid Grid.Row="3" ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,10,0,0">
+            <Button Grid.Column="0" Text="+ Adaugă Călătorie" 
+                    Clicked="OnAdaugaClicked" 
+                    CornerRadius="10" 
+                    BackgroundColor="#5E5CE6" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    Padding="0,12" />
+
+            <Button Grid.Column="1" Text="⛅ Vezi Vremea" 
+                    Clicked="OnVeziVremeaClicked" 
+                    CornerRadius="10" 
+                    BackgroundColor="#0A84FF" 
+                    TextColor="White" 
+                    FontAttributes="Bold" 
+                    Padding="0,12" />
+        </Grid>
+
+    </Grid>
+</ContentPage>

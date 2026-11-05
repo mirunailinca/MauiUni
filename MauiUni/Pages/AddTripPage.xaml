@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiUni.Pages.AddTripPage"
+             Title="Adaugă Călătorie">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Image: Avatar destinație -->
+            <Image Source="dotnet_bot.png" HeightRequest="120" Aspect="AspectFit" />
+
+            <!-- Entry: Nume destinație -->
+            <Entry x:Name="DestinatieEntry" Placeholder="Nume destinație (ex. Paris)" FontSize="16" />
+            
+            <!-- DatePicker: Data plecare și întoarcere -->
+            <Label Text="Data plecării:" TextColor="Gray" Margin="0,0,0,-10"/>
+            <DatePicker x:Name="DataPlecarePicker" Format="dd/MM/yyyy" />
+            
+            <Label Text="Data întoarcerii:" TextColor="Gray" Margin="0,0,0,-10"/>
+            <DatePicker x:Name="DataIntoarcerePicker" Format="dd/MM/yyyy" />
+
+            <!-- Picker: Monedă -->
+            <Picker x:Name="MonedaPicker" Title="Selectează moneda">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>RON</x:String>
+                        <x:String>EUR</x:String>
+                        <x:String>USD</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <!-- Entry: Buget estimat -->
+            <Entry x:Name="BugetEntry" Placeholder="Buget estimat" Keyboard="Numeric" FontSize="16" />
+            
+            <!-- Button: Salvează călătoria -->
+            <Button Text="Salvează Călătoria" Clicked="OnSalveazaClicked" CornerRadius="8" BackgroundColor="#2B0B98" TextColor="White" Margin="0,15,0,0" />
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
