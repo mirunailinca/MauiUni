@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiUni.Pages.ExploreAttractionsPage"
+             Title="Obiective Turistice">
+
+    <Grid Padding="20" RowDefinitions="Auto, Auto, *" RowSpacing="12">
+
+        <SearchBar Grid.Row="0" x:Name="BaraCautare"
+                   Placeholder="Caută un oraș (ex. Tokyo)"
+                   SearchButtonPressed="OnCautareOras" />
+
+        <Label Grid.Row="1" x:Name="MesajLabel"
+               Text="Caută un oraș ca să vezi obiectivele de acolo."
+               TextColor="Gray"
+               FontSize="14" />
+
+        <CollectionView Grid.Row="2" x:Name="ListaAtractiiView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,8" Padding="15" CornerRadius="15"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                           BorderColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="{Binding Nume}" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding TipSiOras}" FontSize="13" TextColor="Gray" />
+                            <Label Text="{Binding DescriereAfisare}" FontSize="15" LineBreakMode="WordWrap" />
+
+                            <Button Text="Adaugă la itinerariul meu"
+                                    Clicked="OnAdaugaLaItinerariuClicked"
+                                    CornerRadius="10"
+                                    BackgroundColor="#5E5CE6"
+                                    TextColor="White"
+                                    FontAttributes="Bold"
+                                    Padding="0,12"
+                                    Margin="0,6,0,0" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

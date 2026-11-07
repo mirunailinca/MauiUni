@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiUni.Pages.PackingChecklistPage"
+             Title="Checklist bagaj">
+
+    <Grid Padding="20" RowDefinitions="*, Auto, Auto, Auto" RowSpacing="12">
+
+        <!-- CollectionView: lista obiectelor -->
+        <CollectionView Grid.Row="0" x:Name="ListaBagajView">
+            <CollectionView.EmptyView>
+                <Label Text="Niciun obiect în bagaj."
+                       TextColor="Gray"
+                       Margin="0,20,0,0" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,6" Padding="15" CornerRadius="12"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                           BorderColor="Transparent" HasShadow="True">
+                        <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12" VerticalOptions="Center">
+                            <!-- CheckBox: bifat / împachetat -->
+                            <CheckBox Grid.Column="0"
+                                      IsChecked="{Binding Impachetat}"
+                                      CheckedChanged="OnBifat"
+                                      Color="#32D74B"
+                                      VerticalOptions="Center" />
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="{Binding Denumire}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding Categorie}" FontSize="13" TextColor="Gray" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Entry: denumire obiect nou -->
+        <Entry Grid.Row="1" x:Name="DenumireEntry" Placeholder="Denumire obiect nou" FontSize="16" />
+
+        <!-- Picker: categorie -->
+        <Picker Grid.Row="2" x:Name="CategoriePicker" Title="Categorie" SelectedIndex="0">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Haine</x:String>
+                    <x:String>Electronice</x:String>
+                    <x:String>Documente</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <!-- Button: adaugă în bagaj -->
+        <Button Grid.Row="3" Text="Adaugă în bagaj"
+                Clicked="OnAdaugaClicked"
+                CornerRadius="10"
+                BackgroundColor="#32D74B"
+                TextColor="White"
+                FontAttributes="Bold"
+                Padding="0,12" />
+
+    </Grid>
+</ContentPage>

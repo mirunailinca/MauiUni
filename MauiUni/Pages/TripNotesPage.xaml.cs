@@ -20,6 +20,26 @@ public partial class TripNotesPage : ContentPage
         await IncarcaNotite(); // Aici accesează amintirile deja adaugate
     }
 
+    private async void OnItinerariuClicked(object sender, EventArgs e)
+    {
+        var parametri = new Dictionary<string, object>
+        {
+            { "TripIdSelectat", TripId }
+        };
+
+        await Shell.Current.GoToAsync("ItineraryPage", parametri);
+    }
+
+    private async void OnBagajClicked(object sender, EventArgs e)
+    {
+        var parametri = new Dictionary<string, object>
+        {
+            { "TripIdSelectat", TripId }
+        };
+
+        await Shell.Current.GoToAsync("PackingChecklistPage", parametri);
+    }
+
     private async Task IncarcaNotite()
     {
         // Caută în baza de date SQLite doar amintirile pentru excursia pe care ai dat click

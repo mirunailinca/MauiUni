@@ -1,4 +1,4 @@
-﻿using SQLite;
+using SQLite;
 
 namespace MauiUni.Models;
 
@@ -15,4 +15,12 @@ public class Trip
     public decimal Buget { get; set; }
 
     public string DetaliiAfisare => $"{NumeDestinatie} - {DataPlecare:dd/MM/yyyy} ({Buget} {Moneda})";
+
+    public DateTime PrimaZi => DataPlecare.Date;
+
+    public DateTime UltimaZi => DataIntoarcere.Date < DataPlecare.Date
+        ? DataPlecare.Date
+        : DataIntoarcere.Date;
+
+    public int NumarZile => (UltimaZi - PrimaZi).Days + 1;
 }

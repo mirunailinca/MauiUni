@@ -68,6 +68,11 @@ public partial class TripsPage : ContentPage
         await Shell.Current.GoToAsync("WeatherForecastPage");
     }
 
+    private async void OnDescoperaClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("ExploreAttractionsPage");
+    }
+
     private async void OnExcursieSelectata(object sender, SelectionChangedEventArgs e)
     {
         if (e.CurrentSelection.FirstOrDefault() is not Trip excursieSelectata)

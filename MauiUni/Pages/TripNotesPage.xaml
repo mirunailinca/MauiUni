@@ -7,6 +7,24 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                <Button Grid.Column="0" Text="Planifică itinerariul"
+                        Clicked="OnItinerariuClicked"
+                        CornerRadius="10"
+                        BackgroundColor="#FF9F0A"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Padding="0,12" />
+
+                <Button Grid.Column="1" Text="Checklist bagaj"
+                        Clicked="OnBagajClicked"
+                        CornerRadius="10"
+                        BackgroundColor="#32D74B"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        Padding="0,12" />
+            </Grid>
+
             <!-- ACEASTA ESTE LISTA CARE ÎȚI LIPSEA (ListaNotiteView) -->
             <Label Text="Amintiri Salvate:" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
 

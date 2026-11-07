@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiUni.Pages.ItineraryPage"
+             Title="Itinerariu pe zile">
+
+    <Grid Padding="20" RowDefinitions="Auto, *, Auto" RowSpacing="12">
+
+        <Label Grid.Row="0" x:Name="TitluLabel"
+               Text="Zilele vacanței"
+               FontSize="20"
+               FontAttributes="Bold" />
+
+        <!-- CollectionView: zilele vacanței și activitățile din fiecare zi -->
+        <CollectionView Grid.Row="1" x:Name="ListaZileView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,6" Padding="15" CornerRadius="12"
+                           BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
+                           BorderColor="Transparent" HasShadow="True">
+                        <VerticalStackLayout Spacing="6">
+                            <Label Text="{Binding Titlu}" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="{Binding Continut}" FontSize="14" LineBreakMode="WordWrap" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                <!-- DatePicker: ziua selectată -->
+                <DatePicker x:Name="ZiPicker" Grid.Column="0" Format="dd/MM/yyyy" />
+                <!-- TimePicker: ora de start -->
+                <TimePicker x:Name="OraPicker" Grid.Column="1" Format="HH:mm" />
+            </Grid>
+
+            <!-- Entry: titlul activității -->
+            <Entry x:Name="TitluEntry" Placeholder="Titlul activității" FontSize="16" />
+
+            <!-- Editor: observații sau locație -->
+            <Editor x:Name="ObservatiiEditor"
+                    Placeholder="Observații sau locație"
+                    HeightRequest="70"
+                    FontSize="15" />
+
+            <!-- Button: adaugă în plan -->
+            <Button Text="Adaugă în plan"
+                    Clicked="OnAdaugaInPlanClicked"
+                    CornerRadius="10"
+                    BackgroundColor="#5E5CE6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="0,12" />
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>
