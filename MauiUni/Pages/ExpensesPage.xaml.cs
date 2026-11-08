@@ -184,4 +184,15 @@ public partial class ExpensesPage : ContentPage
 
         ImpartireLabel.Text = string.Join("\n\n", rezultat);
     }
+
+    private async void OnDeschideGraficClicked(object sender, EventArgs e)
+    {
+        var parametri = new Dictionary<string, object>
+    {
+        { "TripIdSelectat", TripId }
+    };
+
+        // Navigare către pagina 12 prin Shell, trimițând ID-ul excursiei active[cite: 98, 99]
+        await Shell.Current.GoToAsync("BudgetAnalyticsPage", parametri);
+    }
 }

@@ -26,7 +26,8 @@
                     <DataTemplate>
                         <Frame Margin="0,8" Padding="15" CornerRadius="15" 
                                BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}" 
-                               BorderColor="Transparent" HasShadow="True">
+                               BorderColor="Transparent" HasShadow="True"
+                               InputTransparent="True">
                             <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15" VerticalOptions="Center">
 
                                 <Label Grid.Column="0" Text="✈️" FontSize="28" VerticalOptions="Center" />

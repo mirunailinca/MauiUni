@@ -89,6 +89,13 @@ public partial class TravelDocumentsPage : ContentPage
             return;
         }
 
+        if(string.IsNullOrWhiteSpace(numeFisierSelectat))
+        {
+            await DisplayAlert("Atenție",
+                "Atașează biletul.", "OK");
+            return;
+        }
+
         var document = new TravelDocument
         {
             TripId = TripId,

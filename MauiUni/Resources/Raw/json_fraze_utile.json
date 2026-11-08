@@ -1,0 +1,156 @@
+[
+  {
+    "categorie": "Saluturi & Politețe",
+    "frazaOriginala": "Bună ziua",
+    "traduceri": {
+      "Engleză": "Hello / Good day",
+      "Franceză": "Bonjour",
+      "Spaniolă": "¡Buenos días!",
+      "Italiană": "Buongiorno",
+      "Germană": "Guten Tag"
+    }
+  },
+  {
+    "categorie": "Saluturi & Politețe",
+    "frazaOriginala": "Mulțumesc!",
+    "traduceri": {
+      "Engleză": "Thank you!",
+      "Franceză": "Merci !",
+      "Spaniolă": "¡Gracias!",
+      "Italiană": "Grazie!",
+      "Germană": "Danke!"
+    }
+  },
+  {
+    "categorie": "Restaurant & Mâncare",
+    "frazaOriginala": "Cât costă?",
+    "traduceri": {
+      "Engleză": "How much does it cost?",
+      "Franceză": "Combien ça coûte ?",
+      "Spaniolă": "¿Cuánto cuesta?",
+      "Italiană": "Quanto costa?",
+      "Germană": "Wie viel kostet das?"
+    }
+  },
+  {
+    "categorie": "Restaurant & Mâncare",
+    "frazaOriginala": "Nota de plată, vă rog.",
+    "traduceri": {
+      "Engleză": "The bill, please.",
+      "Franceză": "L'addition, s'il vous plaît.",
+      "Spaniolă": "La cuenta, por favor.",
+      "Italiană": "Il conto, per favore.",
+      "Germană": "Die Rechnung, bitte."
+    }
+  },
+  {
+    "categorie": "Restaurant & Mâncare",
+    "frazaOriginala": "Aveți o masă liberă?",
+    "traduceri": {
+      "Engleză": "Do you have a free table?",
+      "Franceză": "Avez-vous une table libre ?",
+      "Spaniolă": "¿Tiene una mesa libre?",
+      "Italiană": "Avete un tavolo libero?",
+      "Germană": "Haben Sie einen freien Tisch?"
+    }
+  },
+  {
+    "categorie": "Orientare & Transport",
+    "frazaOriginala": "Unde este gara / stația de autobuz / stația de metrou?",
+    "traduceri": {
+      "Engleză": "Where is the station / bus stop / metro station?",
+      "Franceză": "Où est la gare / l'arrêt de bus / la station de métro ?",
+      "Spaniolă": "¿Dónde está la estación / parada de autobús / metro?",
+      "Italiană": "Dov'è la stazione / la fermata dell'autobus / della metropolitana?",
+      "Germană": "Wo ist der Bahnhof / die Bushaltestelle / U-Bahn-Station?"
+    }
+  },
+  {
+    "categorie": "Orientare & Transport",
+    "frazaOriginala": "Cum pot ajunge la X?",
+    "traduceri": {
+      "Engleză": "How can I get to X?",
+      "Franceză": "Comment puis-je me rendre à X ?",
+      "Spaniolă": "¿Cómo puedo llegar a X?",
+      "Italiană": "Come posso arrivare a X?",
+      "Germană": "Wie komme ich nach X?"
+    }
+  },
+  {
+    "categorie": "Orientare & Transport",
+    "frazaOriginala": "La stânga / La dreapta / Drept înainte",
+    "traduceri": {
+      "Engleză": "Left / Right / Straight ahead",
+      "Franceză": "À gauche / À droite / Tout droit",
+      "Spaniolă": "A la izquierda / A la derecha / Todo recto",
+      "Italiană": "A sinistra / A destra / Dritto dritto",
+      "Germană": "Links / Rechts / Geradeaus"
+    }
+  },
+  {
+    "categorie": "Cumpărături & Utilități",
+    "frazaOriginala": "Unde este un supermarket?",
+    "traduceri": {
+      "Engleză": "Where is a supermarket?",
+      "Franceză": "Où y a-t-il un supermarché ?",
+      "Spaniolă": "¿Dónde hay un supermercado?",
+      "Italiană": "Dov'è un supermarket?",
+      "Germană": "Wo ist ein Supermarkt?"
+    }
+  },
+  {
+    "categorie": "Cumpărături & Utilități",
+    "frazaOriginala": "Unde este o bancă / un bancomat?",
+    "traduceri": {
+      "Engleză": "Where is a bank / an ATM?",
+      "Franceză": "Où est une banque / un distributeur automatique ?",
+      "Spaniolă": "¿Dónde hay un banco / cajero automático?",
+      "Italiană": "Dov'è una banca / un bancomat?",
+      "Germană": "Wo ist eine Bank / ein Geldautomat?"
+    }
+  },
+  {
+    "categorie": "Urgențe & Siguranță",
+    "frazaOriginala": "Unde este un spital?",
+    "traduceri": {
+      "Engleză": "Where is a hospital?",
+      "Franceză": "Où est l'hôpital ?",
+      "Spaniolă": "¿Dónde está el hospital?",
+      "Italiană": "Dov'è l'ospedale?",
+      "Germană": "Wo ist das Krankenhaus?"
+    }
+  },
+  {
+    "categorie": "Urgențe & Siguranță",
+    "frazaOriginala": "Pașaportul meu a fost furat.",
+    "traduceri": {
+      "Engleză": "My passport has been stolen.",
+      "Franceză": "Mon passeport a été volé.",
+      "Spaniolă": "Han robado mi pasaporte.",
+      "Italiană": "Il mio passaporto è stato rubato.",
+      "Germană": "Mein Reisepass wurde gestohlen."
+    }
+  },
+  {
+    "categorie": "Comunicare",
+    "frazaOriginala": "Vorbiți limba engleză?",
+    "traduceri": {
+      "Engleză": "Do you speak English?",
+      "Franceză": "Parlez-vous anglais ?",
+      "Spaniolă": "¿Habla inglés?",
+      "Italiană": "Parla inglese?",
+      "Germană": "Sprechen Sie Englisch?"
+    }
+  },
+  {
+    "categorie": "Comunicare",
+    "frazaOriginala": "Nu înțeleg.",
+    "traduceri": {
+      "Engleză": "I don't understand.",
+      "Franceză": "Je ne comprends pas.",
+      "Spaniolă": "No entiendo.",
+      "Italiană": "Non capisco.",
+      "Germană": "Ich verstehe nicht."
+    }
+  }
+]

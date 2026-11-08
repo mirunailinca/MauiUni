@@ -33,4 +33,10 @@
             Route="CurrencyConverterPage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Expresii și fraze utile">
+        <ShellContent
+        ContentTemplate="{DataTemplate pages:TravelPhrasesPage}"
+        Route="TravelPhrasesPage" />
+    </FlyoutItem>
+
 </Shell>

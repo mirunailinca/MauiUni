@@ -52,17 +52,14 @@
                            TextColor="Gray"/>
 
                     <Entry x:Name="SumaEntry"
-                           Placeholder="Sumă (RON)"
+                           Placeholder="Sumă"
                            Keyboard="Numeric"
                            TextColor="Gray"/>
 
                     <Entry x:Name="DescriereEntry"
                            Placeholder="Descriere cheltuială"
                            TextColor="Gray"/>
-                    <!--
-                    <Label Text="Categorie"
-                           TextColor="Gray"/>
-                    -->
+                    
 
                     <Picker x:Name="CategoriePicker"
                             Title="Selectează categoria"
@@ -169,6 +166,13 @@
 
                 </VerticalStackLayout>
             </Frame>
+
+            <Button Text="Vizualizează raportul bugetului și al cheltuielilor"
+                Clicked="OnDeschideGraficClicked"
+                BackgroundColor="#24344D"
+                TextColor="White"
+                CornerRadius="12"
+                Margin="0,10,0,0"/>
 
         </VerticalStackLayout>
     </ScrollView>
