@@ -21,7 +21,6 @@ public partial class CurrencyConverterPage : ContentPage
     private const string UrlUltimele10Zile =
         "https://curs.bnr.ro/nbrfxrates10days.xml";
 
-    // Cursurile sunt exprimate în RON pentru o unitate monetară.
     private Dictionary<string, decimal> _cursuri = new();
 
     public CurrencyConverterPage()
@@ -39,7 +38,6 @@ public partial class CurrencyConverterPage : ContentPage
         await IncarcaCursuri();
     }
 
-    // Citește cursurile actuale folosind XmlReader.
     private async Task IncarcaCursuri()
     {
         LoadingIndicator.IsVisible = true;
@@ -101,8 +99,6 @@ public partial class CurrencyConverterPage : ContentPage
                         }
                     }
 
-                    // ReadElementContentAsString poziționează
-                    // reader-ul după elementul Rate.
                     continue;
                 }
 
@@ -230,7 +226,6 @@ public partial class CurrencyConverterPage : ContentPage
         OnConvertesteClicked(sender, e);
     }
 
-    // Citește istoricul ultimelor 10 zile folosind XmlReader.
     private async Task IncarcaIstoric()
     {
         try

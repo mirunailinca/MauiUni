@@ -11,7 +11,6 @@
                FontSize="20"
                FontAttributes="Bold" />
 
-        <!-- CollectionView: zilele vacanței și activitățile din fiecare zi -->
         <CollectionView Grid.Row="1" x:Name="ListaZileView">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
@@ -29,22 +28,17 @@
 
         <VerticalStackLayout Grid.Row="2" Spacing="10">
             <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
-                <!-- DatePicker: ziua selectată -->
                 <DatePicker x:Name="ZiPicker" Grid.Column="0" Format="dd/MM/yyyy" />
-                <!-- TimePicker: ora de start -->
                 <TimePicker x:Name="OraPicker" Grid.Column="1" Format="HH:mm" />
             </Grid>
 
-            <!-- Entry: titlul activității -->
             <Entry x:Name="TitluEntry" Placeholder="Titlul activității" FontSize="16" />
 
-            <!-- Editor: observații sau locație -->
             <Editor x:Name="ObservatiiEditor"
                     Placeholder="Observații sau locație"
                     HeightRequest="70"
                     FontSize="15" />
 
-            <!-- Button: adaugă în plan -->
             <Button Text="Adaugă în plan"
                     Clicked="OnAdaugaInPlanClicked"
                     CornerRadius="10"

@@ -1,5 +1,7 @@
 using System.Net.Http.Json;
 using System.Text.Json.Serialization;
+using MauiUni.Models;
+
 namespace MauiUni.Pages;
 
 public partial class WeatherForecastPage : ContentPage
@@ -26,7 +28,6 @@ public partial class WeatherForecastPage : ContentPage
 
         try
         {
-            // Pasul 1: Obținem coordonatele (Latitudine și Longitudine) pentru orașul introdus
             string geoUrl = $"https://geocoding-api.open-meteo.com/v1/search?name={Uri.EscapeDataString(oras)}&count=1&language=ro&format=json";
             var geoResponse = await _httpClient.GetFromJsonAsync<GeoResponse>(geoUrl);
 
@@ -40,19 +41,16 @@ public partial class WeatherForecastPage : ContentPage
             double lat = locatie.Latitude;
             double lon = locatie.Longitude;
 
-            // Pasul 2: Preluăm vremea folosind coordonatele
             string weatherUrl = $"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=auto";
             var weatherResponse = await _httpClient.GetFromJsonAsync<WeatherApiResponse>(weatherUrl);
 
             if (weatherResponse != null)
             {
-                // Actualizăm vremea curentă
                 double tempCurenta = weatherResponse.Current.Temperature2m;
                 int codMeteo = weatherResponse.Current.WeatherCode;
                 WeatherLabel.Text = $"{tempCurenta:F1} °C, {ObtineDescriereStare(codMeteo)} ({locatie.Name})";
                 WeatherIconLabel.Text = ObtineIconita(codMeteo);
 
-                // Actualizăm prognoza pentru următoarele 3 zile
                 var listaPrognoza = new List<MauiUni.Models.DailyForecast>();
                 int zileDeAfisat = Math.Min(3, weatherResponse.Daily.Time.Count);
 
@@ -92,11 +90,11 @@ public partial class WeatherForecastPage : ContentPage
         {
             0 => "Senin",
             1 or 2 or 3 => "Parțial înnorat",
-            45 or 48 => "Cețos",
+            45 or 48 => "Ceață",
             51 or 53 or 55 or 56 or 57 => "Burniță",
             61 or 63 or 65 or 66 or 67 => "Ploaie",
             71 or 73 or 75 or 77 => "Ninsoare",
-            80 or 81 or 82 => "Averse de ploaie",
+            80 or 81 or 82 => "Ploaie intensă",
             95 or 96 or 99 => "Furtună",
             _ => "Schimbător"
         };
@@ -115,56 +113,4 @@ public partial class WeatherForecastPage : ContentPage
             _ => "🌤️"
         };
     }
-}
-
-// Clase ajutătoare pentru deserializarea JSON-ului de la Open-Meteo
-public class GeoResponse
-{
-    [JsonPropertyName("results")]
-    public List<GeoLocation> Results { get; set; } = new();
-}
-
-public class GeoLocation
-{
-    [JsonPropertyName("name")]
-    public string Name { get; set; } = string.Empty;
-
-    [JsonPropertyName("latitude")]
-    public double Latitude { get; set; }
-
-    [JsonPropertyName("longitude")]
-    public double Longitude { get; set; }
-}
-
-public class WeatherApiResponse
-{
-    [JsonPropertyName("current")]
-    public CurrentWeather Current { get; set; } = new();
-
-    [JsonPropertyName("daily")]
-    public DailyWeather Daily { get; set; } = new();
-}
-
-public class CurrentWeather
-{
-    [JsonPropertyName("temperature_2m")]
-    public double Temperature2m { get; set; }
-
-    [JsonPropertyName("weather_code")]
-    public int WeatherCode { get; set; }
-}
-
-public class DailyWeather
-{
-    [JsonPropertyName("time")]
-    public List<string> Time { get; set; } = new();
-
-    [JsonPropertyName("weather_code")]
-    public List<int> WeatherCode { get; set; } = new();
-
-    [JsonPropertyName("temperature_2m_max")]
-    public List<double> Temperature2mMax { get; set; } = new();
-
-    [JsonPropertyName("temperature_2m_min")]
-    public List<double> Temperature2mMin { get; set; } = new();
 }

@@ -4,7 +4,6 @@ namespace MauiUni.Models;
 
 public class Trip
 {
-    // Spunem bazei de date că acesta este ID-ul principal și se generează automat
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
 

@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:microcharts="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="MauiUni.Pages.BudgetAnalyticsPage"
-             Title="Raport Grafic Buget"
-             BackgroundColor="{AppThemeBinding Light=#F8F9FA, Dark=#121212}">
+             Title="Raport grafic buget și cheltuieli">
 
     <ScrollView>
         <VerticalStackLayout Spacing="16" Padding="20">
@@ -18,7 +17,6 @@
                    Text="Călătorie selectată"
                    TextColor="Gray"/>
 
-            <!-- Card Sumar Buget (Border / Frame) -->
             <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                    Padding="20">
                 <VerticalStackLayout Spacing="10">
@@ -32,24 +30,22 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Card Grafic Circular (Microcharts DonutChart) -->
             <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
-                    Padding="18">
+                   Padding="18">
                 <VerticalStackLayout Spacing="12">
                     <Label Text="Distribuție pe Categorii"
                            FontSize="18"
                            FontAttributes="Bold"
                            TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
-                    <!-- Controlul ChartView pentru DonutChart -->
-                    <microcharts:ChartView x:Name="BudgetChart" 
+                    <microcharts:ChartView x:Name="CategoryChart" 
                                            HeightRequest="250" 
                                            HorizontalOptions="Fill"/>
                 </VerticalStackLayout>
             </Frame>
 
             <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
-                    Padding="18">
+                   Padding="18">
                 <VerticalStackLayout Spacing="12">
                     <Label Text="Cheltuieli pe Plătitor"
                            FontSize="18"

@@ -2,21 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiUni.Pages.TravelPhrasesPage"
-             Title="Expresii Utile">
+             Title="Expresii și fraze utile">
 
     <Grid RowDefinitions="Auto, Auto, Auto, Auto, *" Padding="16" RowSpacing="12">
-
-        <!-- Header cu Imagine și Label -->
         <HorizontalStackLayout Grid.Row="0" Spacing="10" VerticalOptions="Center">
-            <!-- 1. Control Imagine -->
             <Image Source="dotnet_bot.png" WidthRequest="32" HeightRequest="32" Aspect="AspectFit"/>
-            <!-- 2. Control Label (Titlu) -->
             <Label Text="Ghid rapid de conversație" FontSize="20" FontAttributes="Bold" 
                    TextColor="{AppThemeBinding Light=#1E3A8A, Dark=#60A5FA}" VerticalOptions="Center"/>
         </HorizontalStackLayout>
 
-        <!-- Selector Limbă -->
-        <!-- 3. Control Picker -->
         <Picker Grid.Row="1" x:Name="LimbaPicker"
                 Title="Selectează limba țintă"
                 SelectedIndexChanged="OnFiltruSchimbat"
@@ -37,14 +31,10 @@
                 BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                 TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
-        <!-- Bara de Căutare -->
-        <!-- 4. Control SearchBar -->
         <SearchBar Grid.Row="3" x:Name="BaraCautareFraze"
                    Placeholder="Caută o expresie..."
                    TextChanged="OnCautareTextChanged" />
 
-        <!-- Lista cu Expresii -->
-        <!-- 5. Control CollectionView -->
         <CollectionView Grid.Row="4" x:Name="ListaFrazeView">
             <CollectionView.EmptyView>
                 <Label Text="Nu s-au găsit expresii pentru căutarea introdusă."
@@ -63,8 +53,6 @@
                                        TextColor="{AppThemeBinding Light=#1C1C1E, Dark=#DFDFDF}"/>
                                 <Label Grid.Row="2" Text="{Binding TraducereCurenta}" FontSize="15" 
                                        TextColor="#4573EB" FontAttributes="Bold"/>
-
-                                <!-- 6. Control Button (Acțiune de copiere / citire) -->
                                 <Button Grid.Column="1" Grid.RowSpan="3"
                                         Text="📋 Copiază"
                                         Clicked="OnCopiazaFrazaClicked"

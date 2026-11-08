@@ -10,7 +10,7 @@ public partial class TravelPhrasesPage : ContentPage
     public TravelPhrasesPage()
     {
         InitializeComponent();
-        LimbaPicker.SelectedIndex = 0; // Setăm default pe engleză
+        LimbaPicker.SelectedIndex = 0; // Engleza
     }
 
     protected override async void OnAppearing()
@@ -46,7 +46,6 @@ public partial class TravelPhrasesPage : ContentPage
     {
         if (_toateFrazele.Count == 0) return;
 
-        // Extragem categoriile unice din JSON
         List<string> categorii = _toateFrazele
             .Select(f => f.Categorie)
             .Where(c => !string.IsNullOrWhiteSpace(c))
@@ -54,11 +53,10 @@ public partial class TravelPhrasesPage : ContentPage
             .OrderBy(c => c)
             .ToList();
 
-        // Adăugăm opțiunea globală la început
         categorii.Insert(0, "Toate categoriile");
 
         CategoriePicker.ItemsSource = categorii;
-        CategoriePicker.SelectedIndex = 0; // Selectat implicit pe "Toate categoriile"
+        CategoriePicker.SelectedIndex = 0;
     }
 
     private void ActualizeazaLista()
@@ -67,7 +65,6 @@ public partial class TravelPhrasesPage : ContentPage
         string categoriaSelectata = CategoriePicker.SelectedItem?.ToString() ?? "Toate categoriile";
         string cautare = BaraCautareFraze.Text?.Trim().ToLowerInvariant() ?? "";
 
-        // Setăm traducerea corectă în funcție de limba aleasă
         foreach (var item in _toateFrazele)
         {
             if (item.Traduceri.TryGetValue(limbaSelectata, out string? traducere))
@@ -80,7 +77,6 @@ public partial class TravelPhrasesPage : ContentPage
             }
         }
 
-        // Aplicăm filtrele (categorie + text căutare)
         var listaFiltrata = _toateFrazele.Where(f =>
         {
             bool corespundeCategorie = categoriaSelectata == "Toate categoriile" ||

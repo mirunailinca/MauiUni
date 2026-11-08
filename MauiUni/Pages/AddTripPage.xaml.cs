@@ -27,7 +27,6 @@ public partial class AddTripPage : ContentPage
             Buget = decimal.TryParse(BugetEntry.Text, out decimal buget) ? buget : 0
         };
 
-        // ȘTERGE linia veche cu ListaCalatorii.Add() și folosește baza de date:
         await AppDatabase.AdaugaExcursie(excursieNoua);
 
         await Shell.Current.GoToAsync("..");

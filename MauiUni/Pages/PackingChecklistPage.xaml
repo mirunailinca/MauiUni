@@ -6,7 +6,6 @@
 
     <Grid Padding="20" RowDefinitions="*, Auto, Auto, Auto" RowSpacing="12">
 
-        <!-- CollectionView: lista obiectelor -->
         <CollectionView Grid.Row="0" x:Name="ListaBagajView">
             <CollectionView.EmptyView>
                 <Label Text="Niciun obiect în bagaj."
@@ -19,7 +18,6 @@
                            BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                            BorderColor="Transparent" HasShadow="True">
                         <Grid ColumnDefinitions="Auto, *" ColumnSpacing="12" VerticalOptions="Center">
-                            <!-- CheckBox: bifat / împachetat -->
                             <CheckBox Grid.Column="0"
                                       IsChecked="{Binding Impachetat}"
                                       CheckedChanged="OnBifat"
@@ -35,10 +33,8 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <!-- Entry: denumire obiect nou -->
         <Entry Grid.Row="1" x:Name="DenumireEntry" Placeholder="Denumire obiect nou" FontSize="16" />
 
-        <!-- Picker: categorie -->
         <Picker Grid.Row="2" x:Name="CategoriePicker" Title="Categorie" SelectedIndex="0">
             <Picker.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
@@ -49,7 +45,6 @@
             </Picker.ItemsSource>
         </Picker>
 
-        <!-- Button: adaugă în bagaj -->
         <Button Grid.Row="3" Text="Adaugă în bagaj"
                 Clicked="OnAdaugaClicked"
                 CornerRadius="10"

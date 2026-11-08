@@ -23,7 +23,6 @@ public partial class ExploreAttractionsPage : ContentPage
         AplicaFiltre();
     }
 
-    // Lista externă vine din JSON-ul din pachetul aplicației (Resources/Raw).
     private async Task IncarcaAtractii()
     {
         using var stream = await FileSystem.OpenAppPackageFileAsync("json_atractii_turistice.json");
@@ -35,7 +34,6 @@ public partial class ExploreAttractionsPage : ContentPage
             PropertyNameCaseInsensitive = true
         }) ?? new List<Attraction>();
 
-        // Același obiectiv poate apărea de mai multe ori în exportul Wikidata.
         _toate = dinJson
             .Where(a => !string.IsNullOrWhiteSpace(a.Nume) && !string.IsNullOrWhiteSpace(a.Oras))
             .GroupBy(a => $"{a.Id}|{a.Oras}")

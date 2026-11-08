@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiUni.Pages.TripNotesPage"
-             Title="Jurnal &amp; Amintiri">
+             Title="Jurnal și Amintiri">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
@@ -50,7 +50,6 @@
 
             </Grid>
 
-            <!-- ACEASTA ESTE LISTA CARE ÎȚI LIPSEA (ListaNotiteView) -->
             <Label Text="Amintiri Salvate:" FontAttributes="Bold" FontSize="18" TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}" />
 
             <CollectionView x:Name="ListaNotiteView">
@@ -69,10 +68,8 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <!-- O linie de despărțire între lista veche și formularul nou -->
             <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
 
-            <!-- Formular Adăugare Notiță Nouă -->
             <Label Text="Adaugă o Amintire Nouă:" FontAttributes="Bold" FontSize="18" />
 
             <Frame Padding="0" CornerRadius="10" BackgroundColor="{AppThemeBinding Light=#F2F2F7, Dark=#1C1C1E}" BorderColor="Transparent">

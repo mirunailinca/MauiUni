@@ -13,11 +13,10 @@ public partial class TripNotesPage : ContentPage
         InitializeComponent();
     }
 
-    // Se apelează automat când se deschide ecranul
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        await IncarcaNotite(); // Aici accesează amintirile deja adaugate
+        await IncarcaNotite();
     }
 
     private async void OnItinerariuClicked(object sender, EventArgs e)
@@ -42,10 +41,7 @@ public partial class TripNotesPage : ContentPage
 
     private async Task IncarcaNotite()
     {
-        // Caută în baza de date SQLite doar amintirile pentru excursia pe care ai dat click
         var notite = await AppDatabase.IaNotitePentruExcursie(TripId);
-
-        // Le afișează în lista de sus
         ListaNotiteView.ItemsSource = notite;
     }
 
@@ -74,12 +70,10 @@ public partial class TripNotesPage : ContentPage
 
         await AppDatabase.AdaugaNotita(notitaNoua);
 
-        // Curățăm formularul după salvare
         SubiectEntry.Text = string.Empty;
         NotitaEditor.Text = string.Empty;
         FavoritSwitch.IsToggled = false;
 
-        // Reîncărcăm lista pentru a vizualiza instantaneu noua amintire
         await IncarcaNotite();
     }
 

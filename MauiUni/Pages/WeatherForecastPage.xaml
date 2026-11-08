@@ -2,20 +2,16 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiUni.Pages.WeatherForecastPage"
-             Title="Prognoză Meteo">
+             Title="Prognoză meteo">
 
-    <!-- Folosim un Grid pentru a asigura scroll-ul corect al listei (*) -->
     <Grid Padding="20" RowDefinitions="Auto, Auto, Auto, Auto, Auto, *" RowSpacing="15">
-
-        <!-- 1. Entry: Orașul căutat -->
         <Frame Grid.Row="0" Padding="0" CornerRadius="10" 
                BackgroundColor="{AppThemeBinding Light=#F2F2F7, Dark=#1C1C1E}" 
                BorderColor="Transparent" HasShadow="False">
             <Entry x:Name="CityEntry" Placeholder="Introdu orașul (ex. Bucuresti, Paris)" FontSize="16" Margin="15,5" BackgroundColor="Transparent" />
         </Frame>
 
-        <!-- 2. Button: Preia prognoza (am adăugat Clicked="OnCautareVremeaClicked") -->
-        <Button Grid.Row="1" x:Name="SearchButton" Text="🔍 Caută Vremea" 
+        <Button Grid.Row="1" x:Name="SearchButton" Text="Obține prognoză" 
                 CornerRadius="10" 
                 BackgroundColor="#0A84FF" 
                 TextColor="White" 
@@ -23,16 +19,14 @@
                 Padding="0,12"
                 Clicked="OnCautareVremeaClicked" />
 
-        <!-- 3. ActivityIndicator: Indicator de încărcare -->
         <ActivityIndicator Grid.Row="2" x:Name="LoadingIndicator" IsRunning="False" IsVisible="False" Color="#0A84FF" HorizontalOptions="Center" />
 
-        <!-- 4. Vremea Curentă -->
         <Frame Grid.Row="3" Padding="20" CornerRadius="15" 
                BackgroundColor="{AppThemeBinding Light=#5E5CE6, Dark=#403E99}" 
                BorderColor="Transparent" HasShadow="True">
             <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
                 <Label x:Name="WeatherIconLabel" Text="🌤️" FontSize="48" HorizontalOptions="Center" />
-                <Label x:Name="WeatherLabel" Text="-- °C, Aștept date..." 
+                <Label x:Name="WeatherLabel" Text="-- °C, Introdu o locație..." 
                        FontSize="20" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" />
             </VerticalStackLayout>
         </Frame>
@@ -42,7 +36,6 @@
                TextColor="{AppThemeBinding Light=Gray, Dark=#AAAAAA}" 
                Margin="5,10,0,0" />
 
-        <!-- 5. CollectionView: Prognoza pe zile legată dinamic (x:Name="ForecastCollectionView") -->
         <CollectionView Grid.Row="5" x:Name="ForecastCollectionView">
             <CollectionView.EmptyView>
                 <Label Text="Caută un oraș pentru a vedea prognoza." TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>

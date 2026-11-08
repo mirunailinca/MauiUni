@@ -9,9 +9,7 @@ namespace MauiUni.Pages;
 public partial class BudgetAnalyticsPage : ContentPage
 {
     public int TripId { get; set; }
-
     private Trip? _trip;
-
     public BudgetAnalyticsPage()
     {
         InitializeComponent();
@@ -21,7 +19,6 @@ public partial class BudgetAnalyticsPage : ContentPage
     {
         base.OnAppearing();
 
-        // Preluăm excursia și cheltuielile aferente din baza de date SQLite
         _trip = await AppDatabase.IaExcursie(TripId);
         var cheltuieli = await AppDatabase.IaCheltuieli(TripId);
 
@@ -41,7 +38,6 @@ public partial class BudgetAnalyticsPage : ContentPage
 
         TotalCheltuitLabel.Text = $"{totalCheltuit:N2} {moneda}";
 
-        // Calcul progres ProgressBar
         if (bugetTotal > 0)
         {
             double progres = (double)(totalCheltuit / bugetTotal);
@@ -54,12 +50,10 @@ public partial class BudgetAnalyticsPage : ContentPage
             ProcentBugetLabel.Text = "Nu a fost setat un buget estimat pentru această călătorie.";
         }
 
+        // light/dark mode pentru legenda grafice
         bool isDarkMode = Application.Current?.RequestedTheme == AppTheme.Dark;
-
-        // Setăm culoarea textului etichetelor în funcție de temă
         SKColor textColor = isDarkMode ? SKColor.Parse("#E5E7EB") : SKColor.Parse("#374151");
 
-        // Grupare cheltuieli pe categorii pentru grafic
         var groupedData = cheltuieli
             .GroupBy(x => string.IsNullOrWhiteSpace(x.Categorie) ? "Altele" : x.Categorie)
             .Select(g => new ChartEntry((float)g.Sum(x => x.Suma))
@@ -73,12 +67,12 @@ public partial class BudgetAnalyticsPage : ContentPage
 
         if (groupedData.Count == 0)
         {
-            // Valoare dummy dacă nu sunt cheltuieli, ca să nu crape graficul
             groupedData.Add(new ChartEntry(0) { Label = "Fără cheltuieli", ValueLabel = "0", Color = SKColor.Parse("#9CA3AF") });
         }
 
-        // Setare DonutChart (Grafic circular cu gaură la mijloc, stil modern)
-        BudgetChart.Chart = new DonutChart
+
+
+        CategoryChart.Chart = new DonutChart
         {
             Entries = groupedData,
             AnimationDuration = TimeSpan.FromSeconds(1),

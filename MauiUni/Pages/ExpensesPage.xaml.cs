@@ -11,7 +11,6 @@ namespace MauiUni.Pages;
 public partial class ExpensesPage : ContentPage
 {
     public int TripId { get; set; }
-
     private Trip? _trip;
 
     public ExpensesPage()
@@ -36,11 +35,9 @@ public partial class ExpensesPage : ContentPage
     private async Task IncarcaCheltuieli()
     {
         var lista = await AppDatabase.IaCheltuieli(TripId);
-
         CheltuieliView.ItemsSource = lista;
 
         decimal total = lista.Sum(x => x.Suma);
-
         string moneda = _trip?.Moneda ?? "RON";
 
         TotalLabel.Text = $"{total:N2} {moneda}";
@@ -167,7 +164,6 @@ public partial class ExpensesPage : ContentPage
         }
 
         string moneda = _trip?.Moneda ?? "RON";
-
         var rezultat = new List<string>();
 
         foreach (var persoana in solduri)
@@ -192,7 +188,6 @@ public partial class ExpensesPage : ContentPage
         { "TripIdSelectat", TripId }
     };
 
-        // Navigare către pagina 12 prin Shell, trimițând ID-ul excursiei active[cite: 98, 99]
         await Shell.Current.GoToAsync("BudgetAnalyticsPage", parametri);
     }
 }
