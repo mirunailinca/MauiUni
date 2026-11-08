@@ -3,8 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MauiUni.Pages.ExpensesPage"
-    Title="Cheltuieli"
-    BackgroundColor="#F5F7FA">
+    Title="Cheltuieli">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
@@ -12,36 +11,36 @@
             <Label Text="Bugetul călătoriei"
                    FontSize="26"
                    FontAttributes="Bold"
-                   TextColor="#24344D"/>
+                   TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
             <Label x:Name="DestinatieLabel"
                    Text="Cheltuielile mele"
                    TextColor="Gray"/>
 
-            <Frame BackgroundColor="#315B91"
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                    CornerRadius="18"
                    Padding="20">
 
                 <VerticalStackLayout Spacing="8">
 
                     <Label Text="Total cheltuit"
-                           TextColor="#DCE8F8"
+                           TextColor="Gray"
                            FontSize="14"/>
 
                     <Label x:Name="TotalLabel"
                            Text="0.00 RON"
                            FontSize="30"
                            FontAttributes="Bold"
-                           TextColor="White"/>
+                           TextColor="Gray"/>
 
                     <Label x:Name="BugetLabel"
                            Text="Buget disponibil: 0 RON"
-                           TextColor="White"/>
+                           TextColor="Gray"/>
 
                 </VerticalStackLayout>
             </Frame>
 
-            <Frame BackgroundColor="White"
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                    CornerRadius="18"
                    Padding="18">
 
@@ -50,26 +49,26 @@
                     <Label Text="Adaugă cheltuială"
                            FontSize="19"
                            FontAttributes="Bold"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Entry x:Name="SumaEntry"
                            Placeholder="Sumă (RON)"
                            Keyboard="Numeric"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Entry x:Name="DescriereEntry"
                            Placeholder="Descriere cheltuială"
-                           TextColor="#24344D"/>
-
+                           TextColor="Gray"/>
+                    <!--
                     <Label Text="Categorie"
                            TextColor="Gray"/>
+                    -->
 
                     <Picker x:Name="CategoriePicker"
                             Title="Selectează categoria"
-                            TextColor="#24344D"
+                            TextColor="{AppThemeBinding Light=#4D4D4D, Dark=#DFDFDF}"
                             TitleColor="Gray"
-                            BackgroundColor="White"
-                            HeightRequest="50">
+                            BackgroundColor="{AppThemeBinding Light=#DFDFDF, Dark=#4D4D4D}">
                         <Picker.Items>
                             <x:String>Cazare</x:String>
                             <x:String>Mâncare</x:String>
@@ -81,11 +80,11 @@
 
                     <Entry x:Name="PlatitDeEntry"
                            Placeholder="Cine a plătit?"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Entry x:Name="ParticipantiEntry"
                            Placeholder="Participanți (Ana, Maria, Andrei)"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Button Text="Adaugă cheltuială"
                             Clicked="OnAdaugaCheltuialaClicked"
@@ -99,7 +98,7 @@
             <Label Text="Istoric cheltuieli"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="#24344D"/>
+                   TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
             <CollectionView x:Name="CheltuieliView"
                             SelectionMode="None">
@@ -112,7 +111,7 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame BackgroundColor="White"
+                        <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                                CornerRadius="14"
                                Padding="14"
                                Margin="0,5">
@@ -123,7 +122,7 @@
                                 <Label Text="{Binding Descriere}"
                                        FontAttributes="Bold"
                                        FontSize="16"
-                                       TextColor="#24344D"/>
+                                       TextColor="Gray"/>
 
                                 <Label Grid.Column="1"
                                        Text="{Binding Suma, StringFormat='{0:N2} RON'}"
@@ -153,7 +152,7 @@
                     TextColor="White"
                     CornerRadius="12"/>
 
-            <Frame BackgroundColor="White"
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                    CornerRadius="18"
                    Padding="18">
 
@@ -162,11 +161,11 @@
                     <Label Text="Situația participanților"
                            FontSize="18"
                            FontAttributes="Bold"
-                           TextColor="#24344D"/>
+                           TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
                     <Label x:Name="ImpartireLabel"
                            Text="Adaugă cheltuieli pentru a calcula împărțirea."
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                 </VerticalStackLayout>
             </Frame>

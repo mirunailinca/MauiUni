@@ -3,8 +3,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MauiUni.Pages.TravelDocumentsPage"
-    Title="Documente transport"
-    BackgroundColor="#F5F7FA">
+    Title="Documente transport">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
@@ -12,13 +11,13 @@
             <Label Text="Bilete și documente"
                    FontSize="26"
                    FontAttributes="Bold"
-                   TextColor="#24344D"/>
+                   TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
             <Label x:Name="DestinatieLabel"
                    Text="Documentele călătoriei"
                    TextColor="Gray"/>
 
-            <Frame BackgroundColor="White"
+            <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
                    CornerRadius="18"
                    Padding="18">
 
@@ -27,13 +26,13 @@
                     <Label Text="Adaugă un document"
                            FontSize="18"
                            FontAttributes="Bold"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Label Text="Tip transport" TextColor="Gray"/>
 
                     <Picker x:Name="TransportPicker"
                             Title="Selectează transportul"
-                            TextColor="#24344D">
+                            TextColor="Gray">
                         <Picker.Items>
                             <x:String>Avion</x:String>
                             <x:String>Tren</x:String>
@@ -46,14 +45,14 @@
 
                     <Entry x:Name="CodEntry"
                            Placeholder="Ex: RO12345"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Label Text="Loc / Terminal"
                            TextColor="Gray"/>
 
                     <Entry x:Name="LocatieEntry"
                            Placeholder="Ex: Terminal 2, Locul 15"
-                           TextColor="#24344D"/>
+                           TextColor="Gray"/>
 
                     <Button Text="Atașează bilet"
                             Clicked="OnAtaseazaClicked"
@@ -77,25 +76,25 @@
             <Label Text="Documentele mele"
                    FontSize="20"
                    FontAttributes="Bold"
-                   TextColor="#24344D"/>
+                   TextColor="{AppThemeBinding Light=#1C1C1E, Dark=White}"/>
 
             <CollectionView x:Name="DocumenteView"
                 SelectionMode="None">
 
                 <CollectionView.EmptyView>
                     <Label Text="Nu există documente salvate."
-               TextColor="Gray"
-               Padding="10"/>
+                        TextColor="Gray"
+                        Padding="10"/>
                 </CollectionView.EmptyView>
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="{AppThemeBinding Light=White, Dark=#2C2C2E}"
-                   CornerRadius="12"
-                   Padding="15"
-                   Margin="0,5"
-                   BorderColor="Transparent"
-                   HasShadow="True">
+                           CornerRadius="12"
+                           Padding="15"
+                           Margin="0,5"
+                           BorderColor="Transparent"
+                           HasShadow="True">
 
                             <VerticalStackLayout Spacing="7">
 
