@@ -7,22 +7,47 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
-                <Button Grid.Column="0" Text="Planifică itinerariul"
-                        Clicked="OnItinerariuClicked"
-                        CornerRadius="10"
-                        BackgroundColor="#FF9F0A"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        Padding="0,12" />
+            <Grid RowDefinitions="Auto, Auto, Auto"
+              ColumnDefinitions="*, *"
+              ColumnSpacing="10"
+              RowSpacing="10">
 
-                <Button Grid.Column="1" Text="Checklist bagaj"
-                        Clicked="OnBagajClicked"
-                        CornerRadius="10"
-                        BackgroundColor="#32D74B"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        Padding="0,12" />
+                <Button Grid.Row="0" Grid.Column="0"
+                    Text="Planifică itinerariul"
+                    Clicked="OnItinerariuClicked"
+                    CornerRadius="10"
+                    BackgroundColor="#FF9F0A"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="0,12"/>
+
+                <Button Grid.Row="0" Grid.Column="1"
+                    Text="Checklist bagaj"
+                    Clicked="OnBagajClicked"
+                    CornerRadius="10"
+                    BackgroundColor="#32D74B"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="0,12"/>
+
+                 <Button Grid.Row="1" Grid.Column="0"
+                    Text="Bilete și documente"
+                    Clicked="OnDocumenteClicked"
+                    CornerRadius="10"
+                    BackgroundColor="#5E5CE6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="0,12"/>
+
+                 <Button Grid.Row="1" Grid.Column="1"
+                    Text="Cheltuielile călătoriei"
+                    Clicked="OnCheltuieliClicked"
+                    CornerRadius="10"
+                    BackgroundColor="#5E5CE6"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    Padding="0,12"/>
+
             </Grid>
 
             <!-- ACEASTA ESTE LISTA CARE ÎȚI LIPSEA (ListaNotiteView) -->

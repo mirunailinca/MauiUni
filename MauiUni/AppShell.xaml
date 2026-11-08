@@ -3,10 +3,34 @@
     x:Class="MauiUni.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiUni"
     xmlns:pages="clr-namespace:MauiUni.Pages"
-    Title="MauiUni">
+    Title="TripMate"
+    FlyoutBehavior="Flyout"
+    FlyoutBackgroundColor="{AppThemeBinding Light=White, Dark=#1C1C1E}">
 
-    <ShellContent ContentTemplate="{DataTemplate pages:TripsPage}" Route="TripsPage" Title="Dashboard"/>
+    <FlyoutItem Title="Călătoriile mele">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:TripsPage}"
+            Route="TripsPage"
+            Title="Dashboard" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Prognoză meteo">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:WeatherForecastPage}"
+            Route="WeatherForecastPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Obiective turistice">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:ExploreAttractionsPage}"
+            Route="ExploreAttractionsPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Convertor valutar">
+        <ShellContent
+            ContentTemplate="{DataTemplate pages:CurrencyConverterPage}"
+            Route="CurrencyConverterPage" />
+    </FlyoutItem>
 
 </Shell>

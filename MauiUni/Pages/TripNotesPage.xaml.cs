@@ -82,4 +82,26 @@ public partial class TripNotesPage : ContentPage
         // Reîncărcăm lista pentru a vizualiza instantaneu noua amintire
         await IncarcaNotite();
     }
+
+    private async void OnDocumenteClicked(object sender, EventArgs e)
+    {
+        var parametri = new Dictionary<string, object>
+    {
+        { "TripIdSelectat", TripId }
+    };
+
+        await Shell.Current.GoToAsync("TravelDocumentsPage", parametri);
+    }
+
+    private async void OnCheltuieliClicked(object sender, EventArgs e)
+    {
+        var parametri = new Dictionary<string, object>
+    {
+        { "TripIdSelectat", TripId }
+    };
+
+        await Shell.Current.GoToAsync("ExpensesPage", parametri);
+    }
+
+    
 }
