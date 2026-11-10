@@ -52,7 +52,7 @@ public partial class WeatherForecastPage : ContentPage
                 WeatherIconLabel.Text = ObtineIconita(codMeteo);
 
                 var listaPrognoza = new List<MauiUni.Models.DailyForecast>();
-                int zileDeAfisat = Math.Min(3, weatherResponse.Daily.Time.Count);
+                int zileDeAfisat = Math.Min(7, weatherResponse.Daily.Time.Count);
 
                 for (int i = 0; i < zileDeAfisat; i++)
                 {
